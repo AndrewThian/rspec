@@ -28,6 +28,15 @@ describe 'navigate' do
     end
   end
 
+  describe 'new' do
+    it 'has a link from the homepage' do
+      visit root_path
+
+      click_link("new_post_from_nav")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'creation' do
   	before do
   		visit new_post_path
@@ -64,7 +73,7 @@ describe 'navigate' do
 
       # clicked and following a link!
       click_link("edit_#{@post.id}")
-      expect(page.status_code).to eql(200)
+      expect(page.status_code).to eq(200)
     end
 
     it 'can be edited' do
